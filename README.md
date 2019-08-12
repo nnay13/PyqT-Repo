@@ -1,5 +1,5 @@
-#Simple PyQT Examples
+# Simple PyQT Examples
 Everything should be self explanatory 
-*MainWindow.py 
-*PushButton.py
-*SignalsAndSlots.py
+* MainWindow.py 
+* PushButton.py
+* SignalsAndSlots.py
