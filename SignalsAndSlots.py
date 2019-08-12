@@ -16,7 +16,19 @@ class Window(QMainWindow):
         self.setWindowTitle(title)
         self.setGeometry(top, left, width, height)
         self.setWindowIcon(QtGui.QIcon(iconName))
+        self.createButton()
         self.show()
+
+    def createButton(self):
+        button = QPushButton("Fermer", self)
+        button.setGeometry(100, 100, 150, 60)
+        button.setIcon(QtGui.QIcon("icon.jpg"))
+        button.setIconSize(QtCore.QSize(40, 40))
+        button.setToolTip("Il faut cliquer")
+        button.clicked.connect(self.clickMe)
+
+    def clickMe(self):
+        sys.exit()
 
 
 if __name__ == "__main__":
