@@ -1,7 +1,7 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QPushButton, QMainWindow
-from PyQt5 import QtGui
-from PyQt5 import QtCore
+
+from PyQt5 import QtCore, QtGui
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton
 
 
 class Window(QMainWindow):
