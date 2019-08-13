@@ -7,7 +7,6 @@
 SYMBOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?."
 
 
-
 def main():
     myMessage = input("Message à Cypter: \n")
     myKey = int(input("Clef de Cryptage : \n"))
