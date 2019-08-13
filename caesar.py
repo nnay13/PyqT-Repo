@@ -5,7 +5,7 @@
 
 
 SYMBOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?."
-# SYMBOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 
 
 def main():
