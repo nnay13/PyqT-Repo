@@ -14,14 +14,14 @@ class CaesarCryptTest(unittest.TestCase):
 
     def test_key_equals_len_of_symbol(self):
         """ Quand la clef == len(SYMBOL)"""
-        key = len(caesar.SYMBOL)
+        key = len(caesar.SYMBOLS)
         message = "ArTH"
         cipher = caesar.crypt(message, key)
         self.assertEqual(cipher, "ArTH")
 
     def test_key_greater_than_len_of_symbol(self):
         """ Quand la clef > len(SYMBOL)"""
-        key = len(caesar.SYMBOL) + 9
+        key = len(caesar.SYMBOLS) + 9
         message = "ABCDE"
         cipher = caesar.crypt(message, key)
         self.assertEqual(cipher, "JKLMN")
@@ -46,14 +46,14 @@ class CaesarUncryptTest(unittest.TestCase):
 
     def test_key_equals_len_of_symbol(self):
         """ Quand la clef == len(SYMBOL)"""
-        key = len(caesar.SYMBOL)
+        key = len(caesar.SYMBOLS)
         message = "ArTH"
         cipher = caesar.uncrypt(message, key)
         self.assertEqual(cipher, "ArTH")
 
     def test_key_greater_than_len_of_symbol(self):
-        """ Quand la clef > len(SYMBOL)"""
-        key = len(caesar.SYMBOL) + 9
+        """ Quand la clef > len(SYMBOLS)"""
+        key = len(caesar.SYMBOLS) + 9
         message = "JKLMN"
         cipher = caesar.uncrypt(message, key)
         self.assertEqual(cipher, "ABCDE")

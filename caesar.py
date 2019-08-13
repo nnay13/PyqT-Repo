@@ -3,8 +3,8 @@
 """
 # import sys
 
-
-SYMBOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?."
+# list  of characters available for the message
+SYMBOLS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?."
 
 
 def main():
@@ -22,12 +22,12 @@ def crypt(message, key):
     cipherText = [""] * len(message)
     currentIndex = 0
     for char in message:
-        if char in SYMBOL:
-            pos = SYMBOL.index(char) + key
-            if pos < len(SYMBOL):
-                cipherText[currentIndex] = SYMBOL[pos]
+        if char in SYMBOLS:
+            pos = SYMBOLS.index(char) + key
+            if pos < len(SYMBOLS):
+                cipherText[currentIndex] = SYMBOLS[pos]
             else:
-                cipherText[currentIndex] = SYMBOL[pos - len(SYMBOL)]
+                cipherText[currentIndex] = SYMBOLS[pos - len(SYMBOLS)]
         else:
             cipherText[currentIndex] = char
         currentIndex += 1
@@ -43,12 +43,12 @@ def uncrypt(cipherText, key):
     message = [""] * len(cipherText)
     currentIndex = 0
     for char in cipherText:
-        if char in SYMBOL:
-            pos = SYMBOL.index(char) - key
+        if char in SYMBOLS:
+            pos = SYMBOLS.index(char) - key
             if pos < 0:
-                message[currentIndex] = SYMBOL[pos + len(SYMBOL)]
+                message[currentIndex] = SYMBOLS[pos + len(SYMBOLS)]
             else:
-                message[currentIndex] = SYMBOL[pos]
+                message[currentIndex] = SYMBOLS[pos]
         else:
             message[currentIndex] = char
         currentIndex += 1
