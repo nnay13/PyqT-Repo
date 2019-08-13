@@ -1,7 +1,5 @@
-# YGX 13/08/2019
 """Implements the simple CAESAR Cipher
 """
-# import sys
 
 # list  of characters available for the message
 SYMBOLS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?."
