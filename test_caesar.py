@@ -62,5 +62,5 @@ class CaesarUncryptTest(unittest.TestCase):
         """ Quand la clef > len(SYMBOL)"""
         key = 13
         message = "guv6Jv6Jz!J6rp5r7Jzr66ntrM"
-        cipher = caesar.crypt(message, key)
+        cipher = caesar.uncrypt(message, key)
         self.assertEqual(cipher, "This is my secret message.")
