@@ -8,9 +8,10 @@ SYMBOLS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?."
 
 
 def main():
-    myMessage = input("Message à Cypter: \n")
-    myKey = int(input("Clef de Cryptage : \n"))
-    print("Message crypté %s" % crypt(myMessage, myKey))
+    """Main loop"""
+    my_message = input("Message à Cypter: \n")
+    my_key = int(input("Clef de Cryptage : \n"))
+    print("Message crypté %s" % crypt(my_message, my_key))
 
 
 def crypt(message, key):
@@ -19,39 +20,39 @@ def crypt(message, key):
         message {string} -- The string to crypt
         key {int} -- The Cipher Key
     """
-    cipherText = [""] * len(message)
-    currentIndex = 0
+    cipher_text = [""] * len(message)
+    current_index = 0
     for char in message:
         if char in SYMBOLS:
             pos = SYMBOLS.index(char) + key
             if pos < len(SYMBOLS):
-                cipherText[currentIndex] = SYMBOLS[pos]
+                cipher_text[current_index] = SYMBOLS[pos]
             else:
-                cipherText[currentIndex] = SYMBOLS[pos - len(SYMBOLS)]
+                cipher_text[current_index] = SYMBOLS[pos - len(SYMBOLS)]
         else:
-            cipherText[currentIndex] = char
-        currentIndex += 1
-    return "".join(cipherText)
+            cipher_text[current_index] = char
+        current_index += 1
+    return "".join(cipher_text)
 
 
-def uncrypt(cipherText, key):
+def uncrypt(cipher_text, key):
     """Uncrypt a string using the caesar cipher
     Arguments:
         cipherText {string} -- The string to uncrypt
         key {int} -- The Cipher Key
     """
-    message = [""] * len(cipherText)
-    currentIndex = 0
-    for char in cipherText:
+    message = [""] * len(cipher_text)
+    current_index = 0
+    for char in cipher_text:
         if char in SYMBOLS:
             pos = SYMBOLS.index(char) - key
             if pos < 0:
-                message[currentIndex] = SYMBOLS[pos + len(SYMBOLS)]
+                message[current_index] = SYMBOLS[pos + len(SYMBOLS)]
             else:
-                message[currentIndex] = SYMBOLS[pos]
+                message[current_index] = SYMBOLS[pos]
         else:
-            message[currentIndex] = char
-        currentIndex += 1
+            message[current_index] = char
+        current_index += 1
     return "".join(message)
 
 
