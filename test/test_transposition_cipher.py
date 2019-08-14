@@ -60,7 +60,8 @@ class TranspositionFullTest(unittest.TestCase):
 
         # on génère une clef aléatoire
         key = random.randint(4, 30)
-        
+
+        # on vérifie que le cryptage est bijectif
         cipher = tranposition_cipher.crypt(message, key)
         uncrypted_message = tranposition_cipher.uncrypt(cipher, key)
         self.assertEqual(uncrypted_message, message)
