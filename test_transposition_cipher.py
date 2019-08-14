@@ -4,7 +4,7 @@ import tranposition_cipher
 
 
 class TranspositionCryptTest(unittest.TestCase):
-    """ TestCase pour testr le  module de cyptage par transposition"""
+    """ TestCase pour le  module de cyptage par transposition"""
 
     def test_simple_crypt(self):
         """Test Simple"""
@@ -20,6 +20,13 @@ class TranspositionCryptTest(unittest.TestCase):
         cipher = tranposition_cipher.crypt(message, key)
         self.assertEqual(cipher, "ABCDEFG")
 
+    def test_crypt(self):
+        """Test Complexe"""
+        message = "Une phrase Longue."
+        key = 8
+        cipher = tranposition_cipher.crypt(message, key)
+        self.assertEqual(cipher, "Usene.e  Lpohnrgau")
+
 class TranspositionUncryptTest(unittest.TestCase):
     """ TestCase pour testr le  module de cyptage par transposition"""
 
@@ -29,3 +36,10 @@ class TranspositionUncryptTest(unittest.TestCase):
         key = 3
         cipher = tranposition_cipher.uncrypt(message, key)
         self.assertEqual(cipher, "ABCDEFG")
+
+    def test_uncrypt(self):
+        """Test Complexe"""
+        message = "Usene.e  Lpohnrgau"
+        key = 8
+        cipher = tranposition_cipher.uncrypt(message, key)
+        self.assertEqual(cipher, "Une phrase Longue.")
