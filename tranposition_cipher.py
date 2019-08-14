@@ -38,10 +38,10 @@ def uncrypt(cipher_text, key):
     if key >= len(cipher_text):
         return cipher_text
 
-    nb_of_row = key
-    nb_of_column = math.ceil(len(cipher_text)/key)
-    nb_of_grey_boxes = (nb_of_column * nb_of_row)-len(cipher_text)
-    message = ['']*nb_of_column
+    nb_row = key
+    nb_column = math.ceil(len(cipher_text)/key)
+    nb_blank_boxes = (nb_column * nb_row)-len(cipher_text)
+    message = ['']*nb_column
     row = 0
     column = 0
 
@@ -49,11 +49,12 @@ def uncrypt(cipher_text, key):
         message[column] += char
         column += 1
 
-        if (column == nb_of_column):
+        # if it's the last column 
+        if (column == nb_column):
             row += 1
             column = 0
-
-        if ((column >= nb_of_column - 1) and (row >= nb_of_row-nb_of_grey_boxes)):
+        # if there's blank box
+        if ((column >= nb_column - 1) and (row >= nb_row - nb_blank_boxes)):
             row += 1
             column = 0
 
