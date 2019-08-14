@@ -1,3 +1,4 @@
+import random
 import unittest
 
 import tranposition_cipher
@@ -27,6 +28,7 @@ class TranspositionCryptTest(unittest.TestCase):
         cipher = tranposition_cipher.crypt(message, key)
         self.assertEqual(cipher, "Usene.e  Lpohnrgau")
 
+
 class TranspositionUncryptTest(unittest.TestCase):
     """ TestCase pour testr le  module de cyptage par transposition"""
 
@@ -43,3 +45,22 @@ class TranspositionUncryptTest(unittest.TestCase):
         key = 8
         cipher = tranposition_cipher.uncrypt(message, key)
         self.assertEqual(cipher, "Une phrase Longue.")
+
+
+class TranspositionFullTest(unittest.TestCase):
+    """TestCase du cryptage et du décryptage """
+
+    def test_random_string(self):
+        """Test  à partir d'une chaine randomisée"""
+        # on génère une chaine de caractères aléatoire
+        symbols = list("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef")
+        random.seed()
+        random.shuffle(symbols)
+        message = ''.join(symbols)
+
+        # on génère une clef aléatoire
+        key = random.randint(4, 30)
+        
+        cipher = tranposition_cipher.crypt(message, key)
+        uncrypted_message = tranposition_cipher.uncrypt(cipher, key)
+        self.assertEqual(uncrypted_message, message)
