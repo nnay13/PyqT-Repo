@@ -16,14 +16,13 @@ def crypt(message, key):
     if key >= len(message):
         return message
 
-    column_of_text = ['']*key
-
-    for index in range(key):
-
-
-
-
-    return ""
+    cipher_text = ['']*key
+    for column in range(key):
+        current_index = column
+        while current_index < len(message):
+            cipher_text[column] += message[current_index]
+            current_index += key
+    return ''.join(cipher_text) 
 
 
 def uncrypt(message, key):
