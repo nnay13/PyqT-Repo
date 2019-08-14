@@ -53,6 +53,7 @@ def uncrypt(cipher_text, key):
         if (column == nb_column):
             row += 1
             column = 0
+            
         # if there's blank box
         if ((column >= nb_column - 1) and (row >= nb_row - nb_blank_boxes)):
             row += 1
