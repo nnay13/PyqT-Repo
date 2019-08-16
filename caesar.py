@@ -19,8 +19,8 @@ def crypt(message, key):
         key {int} -- The Cipher Key
     """
     cipher_text = [""] * len(message)
-    current_index = 0
-    for char in message:
+   
+    for current_index, char in enumerate(message): #Enumerate trick :)
         if char in SYMBOLS:
             pos = SYMBOLS.index(char) + key
             if pos < len(SYMBOLS):
@@ -29,7 +29,6 @@ def crypt(message, key):
                 cipher_text[current_index] = SYMBOLS[pos - len(SYMBOLS)]
         else:
             cipher_text[current_index] = char
-        current_index += 1
     return "".join(cipher_text)
 
 
@@ -40,8 +39,8 @@ def uncrypt(cipher_text, key):
         key {int} -- The Cipher Key
     """
     message = [""] * len(cipher_text)
-    current_index = 0
-    for char in cipher_text:
+
+    for current_index, char in enumerate(cipher_text):
         if char in SYMBOLS:
             pos = SYMBOLS.index(char) - key
             if pos < 0:
@@ -50,7 +49,6 @@ def uncrypt(cipher_text, key):
                 message[current_index] = SYMBOLS[pos]
         else:
             message[current_index] = char
-        current_index += 1
     return "".join(message)
 
 
